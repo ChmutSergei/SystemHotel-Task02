@@ -16,7 +16,7 @@ INSERT INTO Rooms(roomNumber, type, bedType, price, checkIn, checkOut, descripti
 VALUES (2,'Люкс',2,58.9,'2018-06-05','2018-06-10',
         'Уютный номер распологается на втором этаже с видом во двор.');
 INSERT INTO Rooms(roomNumber, type, bedType, price, checkIn, checkOut, description)
-VALUES (3,'Супер Люкс',2,115.9,'2018-07-05','2018-07-08', 
+VALUES (3,'Супер Люкс',2,115.9,'2018-07-05','2018-07-08',
         'Приятный и уютный номер распологается на втором этаже с видом во двор.');
 INSERT INTO Rooms(roomNumber, type, bedType, price, checkIn, checkOut, description)
 VALUES (4,'Люкс',3,109.9,'2018-06-28','2018-06-30',
