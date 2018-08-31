@@ -4,9 +4,9 @@ import by.chmut.hotel.bean.Reservation;
 import by.chmut.hotel.bean.Room;
 import by.chmut.hotel.bean.User;
 import by.chmut.hotel.controller.command.Command;
-import by.chmut.hotel.services.ReservationService;
-import by.chmut.hotel.services.RoomService;
-import by.chmut.hotel.services.ServiceFactory;
+import by.chmut.hotel.service.ReservationService;
+import by.chmut.hotel.service.RoomService;
+import by.chmut.hotel.service.ServiceFactory;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +17,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import static by.chmut.hotel.constant.Constants.MAIN_PAGE;
+import static by.chmut.hotel.controller.command.constant.Constants.MAIN_PAGE;
 
 
 public class ReservationCommand implements Command {

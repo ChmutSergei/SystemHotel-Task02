@@ -2,8 +2,8 @@ package by.chmut.hotel.controller.command.impl;
 
 import by.chmut.hotel.bean.User;
 import by.chmut.hotel.controller.command.Command;
-import by.chmut.hotel.services.ServiceFactory;
-import by.chmut.hotel.services.UserService;
+import by.chmut.hotel.service.ServiceFactory;
+import by.chmut.hotel.service.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
