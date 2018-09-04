@@ -12,7 +12,12 @@ This application is the search and reservation of rooms in the hotel according
  
 
  # Example
- 
+ ![scrhotel](https://user-images.githubusercontent.com/42671888/45018239-4490e500-b032-11e8-9821-604c6951c314.JPG)
+ ![scrhotel2](https://user-images.githubusercontent.com/42671888/45018267-570b1e80-b032-11e8-8c35-4d254605ebb4.JPG)
+  ![scrhotel5](https://user-images.githubusercontent.com/42671888/45018345-8a4dad80-b032-11e8-97c2-178c5bee979f.JPG)
+ ![scrhotel3](https://user-images.githubusercontent.com/42671888/45018289-65f1d100-b032-11e8-82cc-95e9227a2485.JPG)
+ ![scrhotel4](https://user-images.githubusercontent.com/42671888/45018312-7a35ce00-b032-11e8-9b0d-a8b62b5bd629.JPG)
+
  
   # Usage
  You must edit file **mysql.properties** from directory _SystemHotel-Task02/recources/_
