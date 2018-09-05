@@ -11,6 +11,7 @@ public enum CommandDirector {
     CREATE_USER("Create_user","", new CreateUserCommand()),
     RESERVATION("Reservation", "pages/reservation.jspx", new ReservationCommand()),
     PAYMENT("Payment", "pages/payment.jspx", new PaymentCommand()),
+    ADMIN("Administration", "pages/administration.jspx", new AdminCommand()),
     SETROOMID("SetRoomId", "", new SetRoomIdCommand());
 
     private String pageName;

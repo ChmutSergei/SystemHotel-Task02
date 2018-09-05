@@ -51,6 +51,20 @@
                                     </li>
                                 </c:otherwise>
                             </c:choose>
+                            <c:set var="condition" value='${"admin".equalsIgnoreCase(sessionScope.admin)}'/>
+                            <c:if test="${condition}">
+                            <c:set var="navName"><fmt:message key="title.administration" bundle="${i18n}"/></c:set>
+                            <c:choose>
+                                <c:when test="${title eq 'Administration'}">
+                                    <li class="active"><a href="#">${navName}</a></li>
+                                </c:when>
+                                <c:otherwise>
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/frontController?pageName=administration">${navName}</a>
+                                    </li>
+                                </c:otherwise>
+                            </c:choose>
+                            </c:if>
                         </ul>
                         <fmt:setLocale value="${sessionScope.locale}"/>
                         <fmt:setBundle basename="messages" var="i18n"/>
