@@ -9,7 +9,7 @@ CREATE TABLE Rooms(id INT PRIMARY KEY AUTO_INCREMENT, roomNumber INT,type CHAR(1
 CREATE TABLE Reservation (id INT PRIMARY KEY AUTO_INCREMENT, user_id INT, room_id INT, date DATE,
   FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE  CASCADE  ON UPDATE CASCADE,
   FOREIGN KEY (room_id) REFERENCES Rooms(id) ON DELETE  CASCADE  ON UPDATE CASCADE);
-INSERT INTO Users (login, password , name , lastname, role) VALUES ("admin", "1111","Valeriy", "Manager", "admin");
+INSERT INTO Users (login, password , name , lastname, role) VALUES ("admin", "tZxnvxlqR1gZHkL3ZnDOug==","Valeriy", "Manager", "admin");
 INSERT INTO Rooms(roomNumber, type, bedType, price, checkIn, checkOut, description)
 VALUES (1,'Супер Люкс',3,128.9,'2018-05-05','2018-05-07',
         'Приятный и уютный номер распологается на втором этаже с видом во двор.');
