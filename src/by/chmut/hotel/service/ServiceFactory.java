@@ -1,5 +1,6 @@
 package by.chmut.hotel.service;
 
+import by.chmut.hotel.service.impl.DtoServiceImpl;
 import by.chmut.hotel.service.impl.ReservationServiceImpl;
 import by.chmut.hotel.service.impl.RoomServiceImpl;
 import by.chmut.hotel.service.impl.UserServiceImpl;
@@ -11,6 +12,7 @@ public class ServiceFactory {
     private final UserService userService= new UserServiceImpl();
     private final RoomService roomService = new RoomServiceImpl();
     private final ReservationService reservationService = new ReservationServiceImpl();
+    private final DtoService dtoService = new DtoServiceImpl();
 
     private ServiceFactory() {}
 
@@ -29,5 +31,9 @@ public class ServiceFactory {
 
     public ReservationService getReservationService() {
         return reservationService;
+    }
+
+    public DtoService getDtoService() {
+        return dtoService;
     }
 }

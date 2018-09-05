@@ -18,11 +18,11 @@ public class RoomDaoImpl extends AbstractDao implements RoomDao {
 
     private static final String selectById = "SELECT * FROM Rooms WHERE id=?";
     private static final String selectAllRoom = "SELECT * FROM Rooms";
-    private static final String selectOnDateAndBedType = "SELECT * FROM Rooms WHERE bedType=? AND ((checkOut<=?)|(checkIn>=?))";
-
+    private static final String selectOnDateAndBedType = "SELECT room_id,roomNumber, type, bedType, price, description " +
+            "FROM Rooms JOIN Reservation ON Rooms.id = Reservation.room_id WHERE bedType=? AND ((checkOut<=?)|(checkIn>=?))";
     private static final String addRoom = "INSERT INTO Rooms (roomNumber, type, bedType, price, checkIn, checkOut, description) " +
             "VALUES (?,?,?,?, now(), now(),?)";
-    private static final String updateRoom = "UPDATE Rooms SET type=?, bedType=?, price=?, checkIn=?, checkOut=?," +
+    private static final String updateRoom = "UPDATE Rooms SET type=?, bedType=?, price=?," +
             " description=? WHERE roomNumber=?";
 
     private static final String deleteRoom = "DELETE FROM Rooms WHERE id=?";
@@ -34,9 +34,9 @@ public class RoomDaoImpl extends AbstractDao implements RoomDao {
         room.setType(rs.getString(3));
         room.setBedType(rs.getInt(4));
         room.setPrice(rs.getDouble(5));
-        room.setCheckIn(rs.getDate(6).toLocalDate());
-        room.setCheckOut(rs.getDate(7).toLocalDate());
-        room.setDescription(rs.getString(8));
+//        room.setCheckIn(rs.getDate(6).toLocalDate());
+//        room.setCheckOut(rs.getDate(7).toLocalDate());
+        room.setDescription(rs.getString(6));
         return room;
     }
     public List<Room> getAllRoom() throws SQLException {
@@ -62,6 +62,7 @@ public class RoomDaoImpl extends AbstractDao implements RoomDao {
         close(rs);
         return list;
     }
+
     @Override
     public Room save(Room room) throws SQLException {
         PreparedStatement psSave = prepareStatement(addRoom,Statement.RETURN_GENERATED_KEYS);
@@ -94,13 +95,13 @@ public class RoomDaoImpl extends AbstractDao implements RoomDao {
     @Override
     public void update(Room room) throws SQLException {
         PreparedStatement psUpdate = prepareStatement(updateRoom);
-        psUpdate.setInt(7,room.getRoomNumber());
+        psUpdate.setInt(5,room.getRoomNumber());
         psUpdate.setString(1,room.getType());
         psUpdate.setInt(2,room.getBedType());
         psUpdate.setDouble(3,room.getPrice());
-        psUpdate.setDate(4,java.sql.Date.valueOf(room.getCheckIn()));
-        psUpdate.setDate(5,java.sql.Date.valueOf(room.getCheckOut()));
-        psUpdate.setString(6,room.getDescription());
+//        psUpdate.setDate(4,java.sql.Date.valueOf(room.getCheckIn()));
+//        psUpdate.setDate(5,java.sql.Date.valueOf(room.getCheckOut()));
+        psUpdate.setString(4,room.getDescription());
         psUpdate.executeUpdate();
     }
 

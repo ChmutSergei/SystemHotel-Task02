@@ -35,6 +35,8 @@ public class PaymentCommand implements Command {
                 Reservation reservation = new Reservation();
                 reservation.setUserId(userId);
                 reservation.setRoomId(room.getId());
+                reservation.setCheckIn((LocalDate) req.getSession().getAttribute("checkIn"));
+                reservation.setCheckOut((LocalDate) req.getSession().getAttribute("checkOut"));
                 reservation.setDate(LocalDate.now());
                 reservationService.save(reservation);
             }

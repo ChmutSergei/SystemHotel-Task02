@@ -1,9 +1,9 @@
 package by.chmut.hotel.service;
 
 import by.chmut.hotel.bean.Reservation;
+import by.chmut.hotel.bean.dto.ClientDTO;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.List;
 
 public interface ReservationService {
@@ -17,7 +17,5 @@ public interface ReservationService {
     int delete(Serializable id);
 
     List<Reservation> getByUserId(Serializable userId);
-
-    List<Reservation> getByDate(LocalDate startDate, LocalDate endDate);
 
 }

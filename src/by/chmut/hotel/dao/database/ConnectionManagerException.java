@@ -1,4 +1,4 @@
-package by.chmut.hotel.database;
+package by.chmut.hotel.dao.database;
 
 public class ConnectionManagerException extends RuntimeException {
     public ConnectionManagerException(String message) {

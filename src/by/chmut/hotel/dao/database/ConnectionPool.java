@@ -1,4 +1,4 @@
-package by.chmut.hotel.database;
+package by.chmut.hotel.dao.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

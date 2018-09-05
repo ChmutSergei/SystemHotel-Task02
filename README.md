@@ -20,6 +20,9 @@ This application is the search and reservation of rooms in the hotel according
 
  
   # Usage
+  
+ Add Projects Libraries from  SystemHotel-Task02/lib/
+  
  You must edit file **mysql.properties** from directory _SystemHotel-Task02/recources/_
           
    ->>change user key and password key to access Database
@@ -30,4 +33,13 @@ This application is the search and reservation of rooms in the hotel according
  
  Run script file **HotelSystem.sql** from directory _SystemHotel-Task02/script/_
 to roll the database.
+
+  This application has 2 roles :  _Administrator_ and _User_
+  to test the administrator role use USERNAME "admin" PASSWORD "1111"
+  
+  Login under the administrator gives access to the closed administration page 
+  where you can :
+  1. You have access to information about customers who arrive today or have their departure day. 
+  2. ......(You can correct reservation information for all reservation.) 
+  3. ......
  

@@ -36,7 +36,10 @@ public class ReservationCommand implements Command {
             if (!lastReservations.isEmpty()) {
                 List<Room> paidRooms = new ArrayList<>();
                 for (Reservation reservation : lastReservations) {
-                    paidRooms.add(roomService.get(reservation.getRoomId()));
+                    Room room = roomService.get(reservation.getRoomId());
+                    room.setCheckIn(reservation.getCheckIn());
+                    room.setCheckOut(reservation.getCheckOut());
+                    paidRooms.add(room);
                 }
                 session.setAttribute("paidRooms", paidRooms);
             }

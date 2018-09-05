@@ -1,7 +1,7 @@
 import by.chmut.hotel.bean.User;
 import by.chmut.hotel.dao.DAOFactory;
 import by.chmut.hotel.dao.UserDao;
-import by.chmut.hotel.database.ConnectionManager;
+import by.chmut.hotel.dao.database.ConnectionManager;
 import org.junit.Assert;
 import org.junit.Test;
 

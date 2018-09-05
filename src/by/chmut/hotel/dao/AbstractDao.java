@@ -1,6 +1,6 @@
 package by.chmut.hotel.dao;
 
-import by.chmut.hotel.database.ConnectionManager;
+import by.chmut.hotel.dao.database.ConnectionManager;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

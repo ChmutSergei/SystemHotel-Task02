@@ -1,4 +1,4 @@
-package by.chmut.hotel.database.utils;
+package by.chmut.hotel.dao.database.utils;
 
 import java.io.*;
 import java.sql.*;

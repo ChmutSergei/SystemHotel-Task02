@@ -1,10 +1,10 @@
 package by.chmut.hotel.service.impl;
 
-import by.chmut.hotel.database.ConnectionManagerException;
+import by.chmut.hotel.dao.database.ConnectionManagerException;
 
 import java.sql.SQLException;
 
-import static by.chmut.hotel.database.ConnectionManager.getConnection;
+import static by.chmut.hotel.dao.database.ConnectionManager.getConnection;
 
 public abstract class AbstractService {
 

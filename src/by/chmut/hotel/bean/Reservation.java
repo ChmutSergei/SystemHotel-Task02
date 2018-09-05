@@ -13,6 +13,8 @@ public class Reservation {
     private int id;
     private int userId;
     private int roomId;
+    private LocalDate checkIn;
+    private LocalDate checkOut;
     private LocalDate date;
 
 
@@ -22,6 +24,20 @@ public class Reservation {
         if (o == null || getClass() != o.getClass()) return false;
         Reservation that = (Reservation) o;
         if (id != that.id || userId != that.userId || roomId != that.roomId) {
+            return false;
+        }
+        if (checkIn == null) {
+            if (that.checkIn != null) {
+                return false;
+            }
+        } else if (!checkIn.equals(that.checkIn)) {
+            return false;
+        }
+        if (checkOut == null) {
+            if (that.checkOut != null) {
+                return false;
+            }
+        } else if (!checkOut.equals(that.checkOut)) {
             return false;
         }
         if (date == null) {
@@ -37,10 +53,10 @@ public class Reservation {
     @Override
     public int hashCode() {
         int result = 1;
-        result = result*37+id;
-        result = result*37+userId;
-        result = result*37+roomId;
-        result = result*37+(date == null?0:date.hashCode())*result;
+        result = result * 37 + id;
+        result = result * 37 + userId;
+        result = result * 37 + roomId;
+        result = result * 37 + (date == null ? 0 : date.hashCode()) * result;
         return result;
     }
 

@@ -1,6 +1,6 @@
 import by.chmut.hotel.bean.Room;
 import by.chmut.hotel.dao.DAOFactory;
-import by.chmut.hotel.database.ConnectionManager;
+import by.chmut.hotel.dao.database.ConnectionManager;
 import by.chmut.hotel.dao.RoomDao;
 import org.junit.Assert;
 import org.junit.Test;

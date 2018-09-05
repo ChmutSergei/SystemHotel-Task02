@@ -15,11 +15,10 @@ import java.util.List;
 
 public class ReservationDaoImpl extends AbstractDao implements ReservationDao {
 
-    private static final String saveQuery = "INSERT INTO Reservation (user_id, room_id, date) " +
-            "VALUES (?,?,now())";
+    private static final String saveQuery = "INSERT INTO Reservation (user_id, room_id, checkIn, checkOut,date) " +
+            "VALUES (?,?,?,?,now())";
     private static final String getQuery = "SELECT * FROM Reservation WHERE id=?";
     private static final String getQueryUserId = "SELECT * FROM Reservation WHERE user_id=?";
-    private static final String getQueryByDate = "SELECT * FROM Reservation WHERE date>=? AND date<=?;";
     private static final String updateQuery = "UPDATE Reservation SET room_id=? WHERE id=?";
     private static final String deleteQuery = "DELETE FROM Reservation WHERE id=?";
 
@@ -29,7 +28,9 @@ public class ReservationDaoImpl extends AbstractDao implements ReservationDao {
         reservation.setId(rs.getInt(1));
         reservation.setUserId(rs.getInt(2));
         reservation.setRoomId(rs.getInt(3));
-        reservation.setDate(rs.getDate(4).toLocalDate());
+        reservation.setCheckIn(rs.getDate(4).toLocalDate());
+        reservation.setCheckOut(rs.getDate(5).toLocalDate());
+        reservation.setDate(rs.getDate(6).toLocalDate());
         return reservation;
     }
 
@@ -45,25 +46,15 @@ public class ReservationDaoImpl extends AbstractDao implements ReservationDao {
         close(rs);
         return list;
     }
-    @Override
-    public List<Reservation> getByDate(LocalDate startDate, LocalDate endDate) throws SQLException {
-        List<Reservation> list = new ArrayList<>();
-        PreparedStatement psGetByDate = prepareStatement(getQueryByDate);
-        psGetByDate.setDate(1, java.sql.Date.valueOf(startDate));
-        psGetByDate.setDate(2, java.sql.Date.valueOf(endDate));
-        ResultSet rs = psGetByDate.executeQuery();
-        while (rs.next()) {
-            list.add(setFromResultSet(rs));
-        }
-        close(rs);
-        return list;
-    }
+
 
     @Override
     public Reservation save(Reservation reservation) throws SQLException {
         PreparedStatement psReservation = prepareStatement(saveQuery, Statement.RETURN_GENERATED_KEYS);
         psReservation.setInt(1, reservation.getUserId());
         psReservation.setInt(2, reservation.getRoomId());
+        psReservation.setDate(3, java.sql.Date.valueOf(reservation.getCheckIn()));
+        psReservation.setDate(4, java.sql.Date.valueOf(reservation.getCheckOut()));
         psReservation.executeUpdate();
         ResultSet rs = psReservation.getGeneratedKeys();
         if (rs.next()) {
@@ -91,8 +82,6 @@ public class ReservationDaoImpl extends AbstractDao implements ReservationDao {
         PreparedStatement psUpdateReservation = prepareStatement(updateQuery);
         psUpdateReservation.setInt(2, reservation.getId());
         psUpdateReservation.setInt(1, reservation.getRoomId());
-//        psUpdateReservation.setDate(2, java.sql.Date.valueOf(reservation.getCheckIn()));
-//        psUpdateReservation.setDate(3, java.sql.Date.valueOf(reservation.getCheckOut()));
         psUpdateReservation.executeUpdate();
     }
 

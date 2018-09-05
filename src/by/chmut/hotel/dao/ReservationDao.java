@@ -9,8 +9,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface ReservationDao extends Dao<Reservation>  {
-    List<Reservation> getByUserId (Serializable userId) throws SQLException;
-    List<Reservation> getByDate (LocalDate startDate,LocalDate endDate) throws SQLException;
 
+    List<Reservation> getByUserId (Serializable userId) throws SQLException;
 }
 
