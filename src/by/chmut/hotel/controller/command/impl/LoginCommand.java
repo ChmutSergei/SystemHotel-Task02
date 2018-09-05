@@ -2,6 +2,7 @@ package by.chmut.hotel.controller.command.impl;
 
 import by.chmut.hotel.bean.User;
 import by.chmut.hotel.controller.command.Command;
+import by.chmut.hotel.controller.command.encoder.Encoder;
 import by.chmut.hotel.service.ServiceFactory;
 import by.chmut.hotel.service.UserService;
 
@@ -28,7 +29,7 @@ public class LoginCommand implements Command {
         }
         User user = userService.getUserByLogin(login);
         String contextPath = req.getContextPath();
-        if (user != null && password.equals(user.getPassword())) {
+        if (user != null && user.getPassword().equals(Encoder.encode(password))) {
             req.getSession().setAttribute("user", user);
             req.getSession().setAttribute("errorMsg", "");
             resp.sendRedirect(contextPath+ "/frontController?pageName="+req.getSession().getAttribute("prevPage"));

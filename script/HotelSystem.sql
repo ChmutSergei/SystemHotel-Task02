@@ -2,7 +2,7 @@ CREATE DATABASE HotelSystem2  CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci
 USE HotelSystem2;
 CREATE TABLE Contacts(id INT PRIMARY KEY AUTO_INCREMENT, email CHAR(20), telephone CHAR(20), country CHAR(20),
 city CHAR(20), address CHAR(120), zip CHAR (10));
-CREATE TABLE Users(id INT PRIMARY KEY AUTO_INCREMENT, login CHAR(20), password CHAR(20), name CHAR(20),lastname CHAR(20),
+CREATE TABLE Users(id INT PRIMARY KEY AUTO_INCREMENT, login CHAR(20), password CHAR(30), name CHAR(20),lastname CHAR(20),
 role CHAR (15),contact_id INT, FOREIGN KEY (contact_id) REFERENCES Contacts(id) ON DELETE  CASCADE  ON UPDATE CASCADE);
 CREATE TABLE Rooms(id INT PRIMARY KEY AUTO_INCREMENT, roomNumber INT,type CHAR(15),bedType INT,
                    price DOUBLE, checkIn DATE,checkOut DATE, description TEXT);
